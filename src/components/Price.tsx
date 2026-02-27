@@ -1,29 +1,35 @@
 interface SrcType {
   src: string;
   width?: string;
+  price: string | number | null;
 }
-export const Price = ({ src, width }: SrcType) => {
+interface Index {
+  price: string;
+}
+export const Price = ({ src, width, price }: SrcType) => {
   return (
-    <div className="w-70 text-center text-black  border-2 bg-gray-700 border-gray-500 h-13 rounded-xl mt-3 ml-5">
+    <div className="w-70 text-center text-black  border-2 border-gray-500 h-13 rounded-xl mt-3 ml-5">
       <div className="flex">
-        <img className={`pl-3 pt-2 ${width}`} src={src} alt="btc" />
-        <span className="pl-7 pt-3 text-gray-200 font-bold text-lg">
-          $5400000
+        <img className={` ${width}`} src={src} alt="btc" />
+        <span className=" pt-3 text-gray-300 font-bold text-lg">
+          {"$"}
+          {price}
         </span>
       </div>
     </div>
   );
 };
 
-export const Index = () => {
+export const Index = ({ price }: Index) => {
   return (
-    <div className="w-70 text-center text-black bg-gray-100 border-3 bg-gray-700 border-gray-500 h-13 rounded-xl mt-3 mb-5 ml-5">
+    <div className="w-70 text-center text-black border-3 border-gray-500 h-13 rounded-xl mt-3 mb-6 ml-5">
       <div className="flex">
-        <span className="bg-red-700 w-8 h-8 mt-2 ml-4 text-center pt-2 text-white font-bold rounded-4xl">
+        <span className="bg-red-700 w-9 h-9 mt-2 ml-1 text-center pt-2 text-md text-white font-bold rounded-4xl">
           500
         </span>
-        <span className="pl-6 pt-3 text-gray-200 font-bold text-lg">
-          $5400000
+        <span className="pl-6 pt-3 text-gray-300 font-bold text-lg">
+          {"$"}
+          {price}
         </span>
       </div>{" "}
       <span></span>
